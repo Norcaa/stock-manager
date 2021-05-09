@@ -1,9 +1,9 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         System.out.print("Mit szeretnél csinálni? ");
         // input
         Scanner input = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Main {
                 felvetel();
                 i = 1;
             } else if (what.toLowerCase().equals("készlet")) {
-                new Raktar();
+                final var raktar = new Raktar();
                 i = 1;
             } else {
                 System.out.print("-1");
@@ -59,18 +59,13 @@ public class Main {
         int day = input.nextInt();
 
         // szállítás:
+        String shipping = "házhozszállítás";
         System.out.print("A szállítási mód: ");
-        Scanner info = new Scanner(System.in);
-        String shipping_info = input.nextLine();
-
-        if (shipping_info.toLowerCase().equals("felvétel")) {
-        } else if (shipping_info.toLowerCase().equals("készlet")) {
-        } else {
-        }
-
+        System.out.println(shipping);
         // fizetés:
+        String payment = "utánvét";
         System.out.print("A fizetési mód: ");
-        String payment = input.nextLine();
+        System.out.println(payment);
 
         System.out.println("SIKERES FELVÉTEL!");
     }
