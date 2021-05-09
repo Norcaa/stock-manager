@@ -19,14 +19,14 @@ public class Felvetel {
         if (name == termek.pro_name){
             // termékhez szükséges
             if ( termek.pro_cover == raktar.st_name){
-                raktar.st_available =- 1*n;
+                raktar.st_available =- n;
             }
             raktar.st_available =- termek.pro_pages;
             if ( termek.pro_backcover == raktar.st_name){
-                raktar.st_available =- 1*n;
+                raktar.st_available =- n;
             }
             if ( termek.pro_bindig == raktar.st_name){
-                raktar.st_available =- 1*n;
+                raktar.st_available =- n;
             }
         }
 
@@ -38,12 +38,30 @@ public class Felvetel {
     public static void delete(){
         System.out.println("TERMÉK TÖRLÉSE...");
 
+        Termek termek = new Termek();
+        Raktar raktar = new Raktar();
+
         System.out.print("Termék neve: ");
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
 
         System.out.print("Darabszáma: ");
         int n = input.nextInt();
+
+        // termék kiválasztása
+        if (name == termek.pro_name){
+            // termékhez szükséges
+            if ( termek.pro_cover == raktar.st_name){
+                raktar.st_available = n;
+            }
+            raktar.st_available =- termek.pro_pages;
+            if ( termek.pro_backcover == raktar.st_name){
+                raktar.st_available = n;
+            }
+            if ( termek.pro_bindig == raktar.st_name){
+                raktar.st_available = n;
+            }
+        }
 
         System.out.println("TERMÉK TÖRÖLVE!");
     }
