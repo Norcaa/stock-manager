@@ -1,0 +1,36 @@
+{
+  "name" : "Autós füzet",
+  "size" : "A5",
+  "price": 990,
+  "cover" : "autós",
+  "pages" : 70,
+  "backcover" : "300mg karton",
+  "binding" : "spirál"
+}
+{
+  "name" : "Virágos füzet",
+  "size" : "A5",
+  "price": 990,
+  "cover" : "virágos",
+  "pages" : 70,
+  "backcover" : "300mg karton",
+  "binding" : "spirál"
+}
+{
+  "name" : "Harry Potter füzet",
+  "size" : "A5",
+  "price": 1250,
+  "cover" : "harry-potter",
+  "pages" : 70,
+  "backcover" : "300mg karton",
+  "binding" : "spirál"
+}
+{
+  "name" : "Star Wars füzet",
+  "size" : "A5",
+  "price": 1250,
+  "cover" : "star-wars",
+  "pages" : 70,
+  "backcover" : "300mg karton",
+  "binding" : "spirál"
+}

@@ -25,7 +25,7 @@
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <maven.compiler.release>15</maven.compiler.release>
         <jackson.version>2.12.1</jackson.version>
-        <exec.mainClass>Kezelés</exec.mainClass>
+        <exec.mainClass>Kezelo</exec.mainClass>
         <javafx.version>16</javafx.version>
     </properties>
 

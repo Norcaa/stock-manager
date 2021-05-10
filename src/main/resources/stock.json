@@ -1,0 +1,148 @@
+[
+	{
+	"name": "virágos",
+	  "available": 100,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "autós",
+	  "available": 100,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "harry-potter",
+	  "available": 100,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "star-wars",
+	  "available": 100,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+
+
+	{
+	  "name": "spirál",
+	  "available": 100,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "page",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "kis boríték",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "nagy boríték",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "doboz",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "csomagolópapír",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "matrica",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "köszönkártya",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+	{
+	  "name": "névjegy",
+	  "available": 500,
+	  "unit": "piece",
+	  "size": "A5",
+	  "lastuse": {
+	  	"year": 2021,
+	  	"month": "april",
+	  	"day": 10
+	  },
+	},
+
+]
