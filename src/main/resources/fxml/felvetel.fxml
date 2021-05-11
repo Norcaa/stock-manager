@@ -19,7 +19,7 @@
                     </font>
                 </Text>
                 <Button fx:id="hozzaadas" layoutX="176.0" layoutY="73.0" mnemonicParsing="false" onAction="#termek_hozzaadasa" text="Termék hozzáadása" textAlignment="CENTER" />
-                <Button fx:id="felvetel" layoutX="347.0" layoutY="461.0" mnemonicParsing="false" onAction="#termek_hozzaadasa" text="Rendelés felvétele" textAlignment="CENTER" />
+                <Button fx:id="felvetel" layoutX="347.0" layoutY="461.0" mnemonicParsing="false" onAction="#rendeles_felvetele" text="Rendelés felvétele" textAlignment="CENTER" />
                 <Button fx:id="vissza" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#vissza_akcio" text="Vissza" />
                 <GridPane layoutX="48.0" layoutY="85.0">
                     <columnConstraints>

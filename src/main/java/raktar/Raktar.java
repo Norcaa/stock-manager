@@ -4,10 +4,9 @@ import java.util.Map;
 
 public class Raktar {
 
-    public String st_name;
-    public int st_available;
-    public String st_unit;
-    public String st_size;
-    public Map<Integer, Integer> st_lastuse;
-
+    public String name;
+    public int available;
+    public String unit;
+    public String size;
+    public Map<String, String> lastuse;
 }

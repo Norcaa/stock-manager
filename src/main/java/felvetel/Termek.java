@@ -1,5 +1,6 @@
 package felvetel;
 
+@lombok.Data
 public class Termek {
 
     public String pro_name;

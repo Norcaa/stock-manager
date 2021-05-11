@@ -13,6 +13,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import raktar.Raktar;
+import raktar.RaktarRepository;
 
 import javax.sound.midi.SysexMessage;
 import javax.swing.*;
@@ -37,7 +39,8 @@ public class KezeloController {
 
     @FXML
     public void keszlet_akcio(javafx.event.ActionEvent actionEvent) {
-        System.out.println("RAKTÁR LISTÁZÁSA");
+        RaktarRepository raktar = new RaktarRepository();
+        System.out.println(raktar.getAll());
     }
 
     @FXML

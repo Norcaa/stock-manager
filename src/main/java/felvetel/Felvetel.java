@@ -5,6 +5,7 @@ import raktar.Raktar;
 import java.util.Scanner;
 
 public class Felvetel {
+    /*
 
     public static void felvetel(){
         System.out.println("RENDELÉS FELVÉTELE");
@@ -48,7 +49,7 @@ public class Felvetel {
 
         System.out.println("SIKERES FELVÉTEL!");
     }
-
+    /*
     public static void item(){
         System.out.println("TERMÉK MEGADÁSA...");
 
@@ -62,6 +63,7 @@ public class Felvetel {
         System.out.print("Darabszáma: ");
         int n = input.nextInt();
 
+        /*
         // termék kiválasztása
         if (name == termek.pro_name){
             // termékhez szükséges
@@ -129,5 +131,5 @@ public class Felvetel {
 
     public static void exit(){
         System.out.println("Felvétel megszakítva!");
-    }
+    }*/
 }

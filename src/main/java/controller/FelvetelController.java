@@ -1,6 +1,7 @@
 package controller;
 
 import felvetel.Felvetel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import raktar.Raktar;
+import raktar.RaktarRepository;
 
+import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 
 public class FelvetelController {
@@ -42,15 +46,14 @@ public class FelvetelController {
 
     public void termek_hozzaadasa(javafx.event.ActionEvent actionEvent) throws IOException {
         String termek = vevo.getText();
+    }
 
-        for (int i = 1; i < Integer.parseInt(termekekszama.getText()); i++) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/termek.fxml"));
-            Parent root = fxmlLoader.load();
-            fxmlLoader.<FelvetelController>getController();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
+    public void rendeles_felvetele(ActionEvent actionEvent) {
+        System.out.println("");
+    }
+
+    public void keszlet(ActionEvent actionEvent) {
+
     }
 
     @FXML
