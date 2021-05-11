@@ -31,7 +31,7 @@ public class FelvetelController {
             stage.setScene(new Scene(root));
             stage.show();
     }
-    
+
     @FXML
     public void hozzaadas(javafx.event.ActionEvent actionEvent){
         hozzaadas.setDisable(false);
