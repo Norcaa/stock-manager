@@ -56,17 +56,22 @@
                             </children>
                         </GridPane>
                         <ChoiceBox fx:id="nev1" prefWidth="150.0" GridPane.rowIndex="3" />
-                        <TextField fx:id="nev2" promptText="Termék neve" GridPane.rowIndex="4" />
-                        <TextField fx:id="nev3" promptText="Termék neve" GridPane.rowIndex="5" />
-                        <TextField fx:id="nev4" promptText="Termék neve" GridPane.rowIndex="6" />
-                        <TextField fx:id="nev5" promptText="Termék neve" GridPane.rowIndex="7" />
+                        <TextField fx:id="nev2" promptText="Termék neve" visible="false" GridPane.rowIndex="4" />
+                        <TextField fx:id="nev3" promptText="Termék neve" visible="false" GridPane.rowIndex="5" />
+                        <TextField fx:id="nev4" promptText="Termék neve" visible="false" GridPane.rowIndex="6" />
+                        <TextField fx:id="nev5" promptText="Termék neve" visible="false" GridPane.rowIndex="7" />
                         <TextField fx:id="db1" alignment="CENTER" promptText="Darabszáma" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="db2" alignment="CENTER" promptText="Darabszáma" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField fx:id="db3" alignment="CENTER" promptText="Darabszáma" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField fx:id="db4" alignment="CENTER" promptText="Darabszáma" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <TextField fx:id="db5" alignment="CENTER" promptText="Darabszáma" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="db2" alignment="CENTER" promptText="Darabszáma" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="db3" alignment="CENTER" promptText="Darabszáma" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="db4" alignment="CENTER" promptText="Darabszáma" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="db5" alignment="CENTER" promptText="Darabszáma" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                     </children>
                 </GridPane>
+            <Label fx:id="label" layoutX="14.0" layoutY="394.0" onMouseClicked="#labeltext" prefHeight="59.0" prefWidth="470.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
             </children></Pane>
     </children>
     <columnConstraints>
