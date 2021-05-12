@@ -2,29 +2,32 @@ package felvetel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import felvetel.Termek;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import javax.sound.midi.SysexMessage;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
+
 
 public class TermekRepository {
 
-    private static final ObjectMapper mapper = new ObjectMapper();
-    // ObjectMapper mapper = new ObjectMapper();
+    Termek termek = new Termek();
 
-    private List<Termek> products;
+    private static final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+    private static List<Termek> products;
 
     public TermekRepository() {
         try {
-            products = mapper.readValue("products.json", new TypeReference<List<Termek>>() {});
+            System.out.println("HAHAH");
+            products = mapper.readValue(TermekRepository.class.getResource("products.json"), new TypeReference<List<Termek>>() {});
         } catch(IOException e) {
             throw new AssertionError("Failed to load resource products.json", e);
         }
     }
 
-    public List<Termek> getAll() {
-        return products;
+    public static String getAll() {
+        return "alma";
     }
 
 }

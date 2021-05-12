@@ -3,11 +3,11 @@ package felvetel;
 @lombok.Data
 public class Termek {
 
-    public String pro_name;
-    public String pro_size;
-    public int pro_price;
-    public String pro_cover;
-    public int pro_pages;
-    public String pro_backcover;
-    public String pro_bindig;
+    public String name;
+    public String size;
+    public int price;
+    public String cover;
+    public int pages;
+    public String backcover;
+    public String bindig;
 }
