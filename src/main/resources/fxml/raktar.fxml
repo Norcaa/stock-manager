@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane fx:id="grid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RaktarController">
+    <children>
+    <Pane prefHeight="500.0" prefWidth="500.0">
+       <children>
+           <Text layoutX="171.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet">
+               <font>
+                   <Font name="Lucida Sans Regular" size="24.0" />
+               </font>
+           </Text>
+           <Button fx:id="vissza" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#vissza_akcio" text="Vissza" />
+           <Button fx:id="truth" layoutX="347.0" layoutY="461.0" mnemonicParsing="false" onAction="#truth_akcio" text="Give me the truth!" />
+            <GridPane alignment="CENTER" layoutX="14.0" layoutY="53.0" prefHeight="398.0" prefWidth="471.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NÉV" textAlignment="CENTER" wrappingWidth="234.279296875">
+                       <font>
+                           <Font size="20.0" />
+                       </font>
+                   </Text>
+                  <Label id="viragos" fx:id="viragos" text="1" GridPane.rowIndex="1" />
+                  <Label id="autos" fx:id="autos" text="2" GridPane.rowIndex="2" />
+                  <Label id="harrypotter" fx:id="harrypotter" text="3" GridPane.rowIndex="3" />
+                  <Label id="starwars" fx:id="starwars" text="4" GridPane.rowIndex="4" />
+                  <Label id="spiral" fx:id="spiral" text="5" GridPane.rowIndex="5" />
+                  <Label id="kicsi" fx:id="kicsi" text="7" GridPane.rowIndex="7" />
+                  <Label id="page" fx:id="page" text="6" GridPane.rowIndex="6" />
+                  <Label id="nagy" fx:id="nagy" text="8" GridPane.rowIndex="8" />
+                  <Label id="doboz" fx:id="doboz" text="9" GridPane.rowIndex="9" />
+                  <Label id="csomagolo" fx:id="csomagolo" text="10" GridPane.rowIndex="10" />
+                  <Label id="matrica" fx:id="matrica" text="11" GridPane.rowIndex="11" />
+                  <Label id="koszon" fx:id="koszon" text="12" GridPane.rowIndex="12" />
+                  <Label id="nevjegy" fx:id="nevjegy" text="13" GridPane.rowIndex="13" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MENNYISÉG" textAlignment="CENTER" wrappingWidth="234.279296875" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Label id="viragosmenny" fx:id="viragosmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label id="autosmenny" fx:id="autosmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label id="harrymenny" fx:id="harrymenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label id="stmenny" fx:id="stmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label id="spiralmenny" fx:id="spiralmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label id="pagemenny" fx:id="pagemenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label id="kicsimenny" fx:id="kicsimenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label id="nagymenny" fx:id="nagymenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label id="dobozmenny" fx:id="dobozmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label id="csommenny" fx:id="csommenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <Label id="matricamenny" fx:id="matricamenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <Label id="koszonmenny" fx:id="koszonmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <Label id="nevjegymenny" fx:id="nevjegymenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+               </children>
+            </GridPane>
+       </children>
+    </Pane>
+    </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
