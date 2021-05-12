@@ -25,12 +25,10 @@ public class KezeloController {
 
     @FXML
     public void felvetel_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println("TERMÉK FELVÉTELE");
-        // Felvetel.felvetel();
+        System.out.println("TERMÉK FELVÉTELE...");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/felvetel.fxml"));
         Parent root = fxmlLoader.load();
-
         fxmlLoader.<FelvetelController>getController();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -38,9 +36,15 @@ public class KezeloController {
     }
 
     @FXML
-    public void keszlet_akcio(javafx.event.ActionEvent actionEvent) {
-        RaktarRepository raktar = new RaktarRepository();
-        System.out.println(raktar.getAll());
+    public void keszlet_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
+        System.out.println("RAKTÁR BETÖLTÉSE...");
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/raktar.fxml"));
+        Parent root = fxmlLoader.load();
+        //fxmlLoader.<RaktarController>getController();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -48,7 +52,7 @@ public class KezeloController {
 
     @FXML
     public void kilepes_akcio(javafx.event.ActionEvent actionEvent) {
-        System.out.println("KILÉPÉS");
+        System.out.println("PROGRAM BEZÁRÁSA");
         Stage stage = (Stage) kilepes.getScene().getWindow();
         stage.close();
     }
