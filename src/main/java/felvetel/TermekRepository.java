@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import javax.sound.midi.SysexMessage;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -19,15 +20,15 @@ public class TermekRepository {
 
     public TermekRepository() {
         try {
-            System.out.println("HAHAH");
             products = mapper.readValue(TermekRepository.class.getResource("products.json"), new TypeReference<List<Termek>>() {});
+            //products = mapper.readValue(TermekRepository.class.getResource("products.json"), new TypeReference<List<Termek>>() {});
         } catch(IOException e) {
             throw new AssertionError("Failed to load resource products.json", e);
         }
     }
 
-    public static String getAll() {
-        return "alma";
+    public static List<Termek> getAll() {
+        return products;
     }
 
 }
