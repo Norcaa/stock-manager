@@ -20,7 +20,7 @@ public class Felvetel {
         int day = nap;
     }
 
-    public static void item(String termek1, String termek2, String termek3, String termek4, String termek5){
+    public static void item(String termek1, String termek2, String termek3, String termek4){
 
 
     }
