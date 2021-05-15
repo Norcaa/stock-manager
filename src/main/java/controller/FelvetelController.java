@@ -93,6 +93,7 @@ public class FelvetelController {
     public Rectangle errorback;
 
     Termek termek = new Termek();
+    Felvetel fevetel = new Felvetel();
 
     @FXML
     public void rendeles_felvetele(ActionEvent actionEvent) {
@@ -107,9 +108,17 @@ public class FelvetelController {
                 int num = calculate();
                 System.out.println(num);
 
-                Felvetel.felvetel(vevo.getText(), num, Integer.parseInt(ev.getText()), Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
-                Felvetel.item(nev1.getText(), nev2.getText(), nev3.getText(), nev4.getText());
-
+                Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()), Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
+                Felvetel.item(nev1.getText(), Integer.parseInt(db1.getText()));
+                if (!(nev2.getText().isEmpty())){
+                    Felvetel.item(nev2.getText(), Integer.parseInt(db2.getText()));
+                    if (!(nev3.getText().isEmpty())){
+                        Felvetel.item(nev3.getText(), Integer.parseInt(db3.getText()));
+                        if (!(nev3.getText().isEmpty())){
+                            Felvetel.item(nev3.getText(), Integer.parseInt(db4.getText()));
+                        }
+                    }
+                }
                 System.out.println("RENDELÉS FELVÉVE!");
                 vissza_akcio(actionEvent);
             }

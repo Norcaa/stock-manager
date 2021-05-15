@@ -1,5 +1,6 @@
 package controller;
 
+import felvetel.Felvetel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,17 +20,6 @@ public class RaktarController {
 
     public void truth_akcio(ActionEvent actionEvent) {
         System.out.println(";");
-    }
-
-    @FXML
-    public void vissza_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println("Vissza a kezelőfelületre.");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/view.fxml"));
-        Parent root = fxmlLoader.load();
-        fxmlLoader.<KezeloController>getController();
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 
     @FXML public Label viragos;
@@ -63,6 +53,8 @@ public class RaktarController {
     public void initialize() {
         new RaktarRepository();
         List<Raktar> raktar = RaktarRepository.getAll();
+        new Felvetel();
+        List<Integer> kellekek = Felvetel.getAll();
 
         viragos.setText(raktar.get(0).getName());
         autos.setText(raktar.get(1).getName());
@@ -78,19 +70,29 @@ public class RaktarController {
         koszon.setText(raktar.get(11).getName());
         nevjegy.setText(raktar.get(12).getName());
 
-        viragosmenny.setText(String.valueOf(raktar.get(0).getAvailable()));
-        autosmenny.setText(String.valueOf(raktar.get(1).getAvailable()));
-        harrymenny.setText(String.valueOf(raktar.get(2).getAvailable()));
-        stmenny.setText(String.valueOf(raktar.get(3).getAvailable()));
-        spiralmenny.setText(String.valueOf(raktar.get(4).getAvailable()));
-        pagemenny.setText(String.valueOf(raktar.get(5).getAvailable()));
-        kicsimenny.setText(String.valueOf(raktar.get(6).getAvailable()));
-        nagymenny.setText(String.valueOf(raktar.get(7).getAvailable()));
-        dobozmenny.setText(String.valueOf(raktar.get(8).getAvailable()));
-        csommenny.setText(String.valueOf(raktar.get(9).getAvailable()));
-        matricamenny.setText(String.valueOf(raktar.get(10).getAvailable()));
-        koszonmenny.setText(String.valueOf(raktar.get(11).getAvailable()));
-        nevjegymenny.setText(String.valueOf(raktar.get(12).getAvailable()));
+        viragosmenny.setText(String.valueOf(raktar.get(0).getAvailable()-kellekek.get(0)));
+        autosmenny.setText(String.valueOf(raktar.get(1).getAvailable()-kellekek.get(1)));
+        harrymenny.setText(String.valueOf(raktar.get(2).getAvailable()-kellekek.get(2)));
+        stmenny.setText(String.valueOf(raktar.get(3).getAvailable()-kellekek.get(3)));
+        spiralmenny.setText(String.valueOf(raktar.get(4).getAvailable()-kellekek.get(4)));
+        pagemenny.setText(String.valueOf(raktar.get(5).getAvailable()-kellekek.get(5)));
+        kicsimenny.setText(String.valueOf(raktar.get(6).getAvailable()-kellekek.get(6)));
+        nagymenny.setText(String.valueOf(raktar.get(7).getAvailable()-kellekek.get(7)));
+        dobozmenny.setText(String.valueOf(raktar.get(8).getAvailable()-kellekek.get(8)));
+        csommenny.setText(String.valueOf(raktar.get(9).getAvailable()-kellekek.get(9)));
+        matricamenny.setText(String.valueOf(raktar.get(10).getAvailable()-kellekek.get(10)));
+        koszonmenny.setText(String.valueOf(raktar.get(11).getAvailable()-kellekek.get(11)));
+        nevjegymenny.setText(String.valueOf(raktar.get(12).getAvailable()-kellekek.get(12)));
     }
 
+    @FXML
+    public void vissza_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
+        System.out.println("Vissza a kezelőfelületre.");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/view.fxml"));
+        Parent root = fxmlLoader.load();
+        fxmlLoader.<KezeloController>getController();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
