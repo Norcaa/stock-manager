@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 import raktar.Raktar;
@@ -71,19 +70,19 @@ public class RaktarController {
         koszon.setText(raktar.get(11).getName());
         nevjegy.setText(raktar.get(12).getName());
 
-        viragosmenny.setText(String.valueOf(raktar.get(0).getAvailable()-kellekek.get(0)));
-        autosmenny.setText(String.valueOf(raktar.get(1).getAvailable()-kellekek.get(1)));
-        harrymenny.setText(String.valueOf(raktar.get(2).getAvailable()-kellekek.get(2)));
-        stmenny.setText(String.valueOf(raktar.get(3).getAvailable()-kellekek.get(3)));
-        spiralmenny.setText(String.valueOf(raktar.get(4).getAvailable()-kellekek.get(4)));
-        pagemenny.setText(String.valueOf(raktar.get(5).getAvailable()-kellekek.get(5)));
-        kicsimenny.setText(String.valueOf(raktar.get(6).getAvailable()-kellekek.get(6)));
-        nagymenny.setText(String.valueOf(raktar.get(7).getAvailable()-kellekek.get(7)));
-        dobozmenny.setText(String.valueOf(raktar.get(8).getAvailable()-kellekek.get(8)));
-        csommenny.setText(String.valueOf(raktar.get(9).getAvailable()-kellekek.get(9)));
-        matricamenny.setText(String.valueOf(raktar.get(10).getAvailable()-kellekek.get(10)));
-        koszonmenny.setText(String.valueOf(raktar.get(11).getAvailable()-kellekek.get(11)));
-        nevjegymenny.setText(String.valueOf(raktar.get(12).getAvailable()-kellekek.get(12)));
+        viragosmenny.setText(String.valueOf(raktar.get(0).getAvailable() - kellekek.get(0)));
+        autosmenny.setText(String.valueOf(raktar.get(1).getAvailable() - kellekek.get(1)));
+        harrymenny.setText(String.valueOf(raktar.get(2).getAvailable() - kellekek.get(2)));
+        stmenny.setText(String.valueOf(raktar.get(3).getAvailable() - kellekek.get(3)));
+        spiralmenny.setText(String.valueOf(raktar.get(4).getAvailable() - kellekek.get(4)));
+        pagemenny.setText(String.valueOf(raktar.get(5).getAvailable() - kellekek.get(5)));
+        kicsimenny.setText(String.valueOf(raktar.get(6).getAvailable() - kellekek.get(6)));
+        nagymenny.setText(String.valueOf(raktar.get(7).getAvailable() - kellekek.get(7)));
+        dobozmenny.setText(String.valueOf(raktar.get(8).getAvailable() - kellekek.get(8)));
+        csommenny.setText(String.valueOf(raktar.get(9).getAvailable() - kellekek.get(9)));
+        matricamenny.setText(String.valueOf(raktar.get(10).getAvailable() - kellekek.get(10)));
+        koszonmenny.setText(String.valueOf(raktar.get(11).getAvailable() - kellekek.get(11)));
+        nevjegymenny.setText(String.valueOf(raktar.get(12).getAvailable() - kellekek.get(12)));
     }
 
     @FXML

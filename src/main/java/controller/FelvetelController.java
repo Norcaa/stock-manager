@@ -40,8 +40,8 @@ public class FelvetelController {
 
     private int termekszam = 1;
 
-    Termek termek = new Termek();
-    Felvetel fevetel = new Felvetel();
+    private final Termek termek = new Termek();
+    private final Felvetel fevetel = new Felvetel();
 
     @FXML
     public void termek_hozzaadasa(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -92,7 +92,7 @@ public class FelvetelController {
                         + Termek.getAll().get(0) + "\n     " + Termek.getAll().get(1)+ "\n     "
                         + Termek.getAll().get(2) + "\n     " + Termek.getAll().get(3));
                 Logger.error("Hiba! Helytelen formátum!");
-            } else if (!validdate){
+            } else if (!validdate) {
                 String ErrorMes = "Érvénytelen dátum!";
                 label.setText(ErrorMes);
                 Logger.error(ErrorMes);
@@ -102,7 +102,7 @@ public class FelvetelController {
                 Logger.info("RENDELÉS FELVÉVE");
                 vissza_akcio(actionEvent);
             }
-        }  catch (Exception e){
+        }  catch (Exception e) {
             String ErrorMes = "Hiba! Érvénytelen értéket adott meg!";
             errorback.setVisible(true);
             label.setText(ErrorMes);
@@ -110,15 +110,16 @@ public class FelvetelController {
         }
     }
 
-    private void felvetel(){
+    private void felvetel() {
         int num = calculate();
-        Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()), Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
+        Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()),
+                Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
         Felvetel.item(nev1.getText(), Integer.parseInt(db1.getText()));
-        if (!(nev2.getText().isEmpty())){
+        if (!(nev2.getText().isEmpty())) {
             Felvetel.item(nev2.getText(), Integer.parseInt(db2.getText()));
-            if (!(nev3.getText().isEmpty())){
+            if (!(nev3.getText().isEmpty())) {
                 Felvetel.item(nev3.getText(), Integer.parseInt(db3.getText()));
-                if (!(nev3.getText().isEmpty())){
+                if (!(nev3.getText().isEmpty())) {
                     Felvetel.item(nev3.getText(), Integer.parseInt(db4.getText()));
                 }
             }
@@ -128,12 +129,13 @@ public class FelvetelController {
     private boolean isValidDate() {
         try {
             String stdatum = ev.getText() + "-" + honap.getText() + "-" + nap.getText();
-            LocalDate datum = LocalDate.parse(stdatum, DateTimeFormatter.ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
-            if (datum.compareTo(LocalDate.now()) <= 0){
+            LocalDate datum = LocalDate.parse(stdatum, DateTimeFormatter
+                    .ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
+            if (datum.compareTo(LocalDate.now()) <= 0) {
                 return true;
             } else { return false; }
         }
-        catch (DateTimeParseException e){
+        catch (DateTimeParseException e) {
             return false;
         }
     }
@@ -142,9 +144,9 @@ public class FelvetelController {
         return setNumber(db1) + setNumber(db2) + setNumber(db3) + setNumber(db4);
     }
 
-    private int setNumber(TextField num){
+    private int setNumber(TextField num) {
         if (num.isVisible()){
-            if (num.getText().isEmpty()){
+            if (num.getText().isEmpty()) {
                 num.setText("1");
                 return 1;
             } else { return Integer.parseInt(num.getText()); }
@@ -152,12 +154,12 @@ public class FelvetelController {
     }
 
     private Boolean isCorrectProduct() {
-        if (isCorrect(nev1.getText())) { // NÉV 1 HELYES-E
-            if (nev2.isVisible()) { // NÉV 2 LÁTHATÓ-E
-                if (isCorrect(nev2.getText())) { // NÉV 2 HELYES-E
-                    if (nev3.isVisible()) { // NÉV 3 LÁTHATÓ-E
-                        if (isCorrect(nev3.getText())) { // NÉV 3 HELYES-E
-                            if (nev4.isVisible()){ // NÉV 4 LÁTHATÓ-E
+        if (isCorrect(nev1.getText())) {
+            if (nev2.isVisible()) {
+                if (isCorrect(nev2.getText())) {
+                    if (nev3.isVisible()) {
+                        if (isCorrect(nev3.getText())) {
+                            if (nev4.isVisible()) {
                                 if (isCorrect(nev4.getText())) {
                                     return true;
                                 } else { return false; }
@@ -171,7 +173,9 @@ public class FelvetelController {
 
     private Boolean isCorrect(String text) {
         return text.equalsIgnoreCase("virágos") || (text.equalsIgnoreCase("autós")) ||
-                (text.equalsIgnoreCase("harry potter")) || (text.equalsIgnoreCase("star wars"));
+                (text.equalsIgnoreCase("harry potter")) || (text.equalsIgnoreCase("star wars")) ||
+                text.equalsIgnoreCase("virágos füzet") || (text.equalsIgnoreCase("autós füzet")) ||
+                (text.equalsIgnoreCase("harry potter füzet")) || (text.equalsIgnoreCase("star wars füzet"));
     }
 
     public void errortext(MouseEvent mouseEvent) {
@@ -190,13 +194,4 @@ public class FelvetelController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
-    /*
-    @FXML
-    public void initialize() {
-        Termek termek = new Termek();
-        ChoiceBox nev1 = new ChoiceBox(FXCollections.observableArrayList(Termek.getAll()));
-        //nev1.setItems((ObservableList) Termek.getAll());
-    }
-    */
 }
