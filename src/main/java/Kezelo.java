@@ -1,6 +1,6 @@
 
 import javafx.application.Application;
-import main.MyApplication;
+import application.MyApplication;
 
 /**
  * Main osztály, a program indulásáért felelős.
