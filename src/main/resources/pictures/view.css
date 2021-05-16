@@ -6,11 +6,6 @@
     -fx-background-image: url("picture.png");
     -fx-background-size: 750 500;
 }
-#errormespane {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #000000;
-    -fx-border-radius: 10px;
-}
 #raktarpane {
     -fx-background-image: url("picture2.png");
     -fx-background-size: 750 500;

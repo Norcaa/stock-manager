@@ -80,6 +80,8 @@ public class Felvetel {
         } else if (termeknev.equalsIgnoreCase("star wars")) {
             starwars = starwars + (num);
         }
+        spiral = spiral + (num);
+        page = page + (70*num);
         Logger.info("Füzet hozzáadva");
     }
 

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
@@ -40,6 +41,7 @@ public class FelvetelController {
     @FXML public TextField db4;
     @FXML public Label label;
     @FXML public Rectangle errorback;
+    @FXML public Pane errormespane;
 
     private int termekszam = 1;
 
@@ -90,14 +92,22 @@ public class FelvetelController {
         try {
             boolean correct = isCorrectProduct();
             boolean validdate = isValidDate();
+            boolean correctnum = isCorrectNum();
+            Logger.info(correctnum);
             if (!correct) {
                 label.setText("Hiba! \nAz alábbi termékek elérhetőek:\n     "
                         + Termek.getAll().get(0) + "\n     " + Termek.getAll().get(1)+ "\n     "
                         + Termek.getAll().get(2) + "\n     " + Termek.getAll().get(3));
+                errorback.setVisible(true);
+                errormespane.setDisable(false);
                 Logger.error("Hiba! Helytelen formátum!");
             } else if (!validdate) {
                 String ErrorMes = "Érvénytelen dátum!";
-                label.setText(ErrorMes);
+                seterrortext(ErrorMes);
+                Logger.error(ErrorMes);
+            } else if (!correctnum) {
+                String ErrorMes = "Érvénytelen darabszám!";
+                seterrortext(ErrorMes);
                 Logger.error(ErrorMes);
             } else {
                 Logger.info("Sikeres megadás");
@@ -107,8 +117,7 @@ public class FelvetelController {
             }
         }  catch (Exception e) {
             String ErrorMes = "Hiba! Érvénytelen értéket adott meg!";
-            errorback.setVisible(true);
-            label.setText(ErrorMes);
+            seterrortext(ErrorMes);
             Logger.error(ErrorMes);
         }
     }
@@ -146,6 +155,13 @@ public class FelvetelController {
         }
     }
 
+    private boolean isCorrectNum() {
+        if (calculate() > 100) {
+            return false;
+        } else return correctNumber(Integer.parseInt(db1.getText())) && correctNumber(Integer.parseInt(db3.getText()))
+                && correctNumber(Integer.parseInt(db2.getText())) && correctNumber(Integer.parseInt(db4.getText()));
+    }
+
     private int calculate() {
         return setNumber(db1) + setNumber(db2) + setNumber(db3) + setNumber(db4);
     }
@@ -156,7 +172,13 @@ public class FelvetelController {
                 num.setText("1");
                 return 1;
             } else { return Integer.parseInt(num.getText()); }
-        } return 0;
+        }
+        num.setText("0");
+        return 0;
+    }
+
+    private boolean correctNumber(int num) {
+        return (num <= 100);
     }
 
     private Boolean isCorrectProduct() {
@@ -184,8 +206,15 @@ public class FelvetelController {
                 (text.equalsIgnoreCase("harry potter füzet")) || (text.equalsIgnoreCase("star wars füzet"));
     }
 
+    public void seterrortext(String errormes) {
+        errorback.setVisible(true);
+        errormespane.setDisable(false);
+        label.setText(errormes);
+    }
+
     public void errortext(MouseEvent mouseEvent) {
         errorback.setVisible(false);
+        errormespane.setDisable(true);
         label.setText("");
     }
 

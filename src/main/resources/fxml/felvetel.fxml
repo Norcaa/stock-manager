@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -79,15 +80,15 @@
                         <TextField fx:id="db4" alignment="CENTER" promptText="Darabszáma" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                     </children>
                 </GridPane>
-            <Pane id="errormespane" layoutX="125.0" layoutY="99.0" maxHeight="300.0" maxWidth="500.0" prefHeight="280.0" prefWidth="500.0" stylesheets="@../pictures/view.css" visible="false">
+            <Pane id="errormespane" fx:id="errormespane" layoutX="125.0" layoutY="99.0" maxHeight="300.0" maxWidth="500.0" prefHeight="280.0" prefWidth="500.0" disable="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <children>
-                  <Rectangle fx:id="errorback" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="248.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="300.0" />
-                  <Label fx:id="label" alignment="CENTER" layoutX="50.0" layoutY="100.0" maxHeight="101.0" maxWidth="400.0" onMouseClicked="#errortext" prefHeight="100.0" prefWidth="400.0" text="SDFSFDSSF" textAlignment="CENTER" visible="false">
+                  <Rectangle fx:id="errorback" arcHeight="50.0" arcWidth="50.0" disable="true" fill="WHITE" height="280.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="500.0" />
+                  <Label fx:id="label" alignment="CENTER" layoutX="50.0" layoutY="15.0" maxHeight="250.0" maxWidth="400.0" onMouseClicked="#errortext" prefHeight="262.0" prefWidth="400.0" textAlignment="CENTER">
                      <font>
-                        <Font name="Laksaman" size="14.0" />
+                        <Font name="Laksaman" size="18.0" />
                      </font>
                   </Label>
                </children>

@@ -47,7 +47,7 @@
 
 	{
 	  "name": "spirál",
-	  "available": 100,
+	  "available": 500,
 	  "unit": "piece",
 	  "size": "A5",
 	  "lastuse": {
@@ -58,7 +58,7 @@
 	},
 	{
 	  "name": "page",
-	  "available": 500,
+	  "available": 7000,
 	  "unit": "piece",
 	  "size": "A5",
 	  "lastuse": {
@@ -69,7 +69,7 @@
 	},
 	{
 	  "name": "kis boríték",
-	  "available": 500,
+	  "available": 300,
 	  "unit": "piece",
 	  "size": "A5",
 	  "lastuse": {
@@ -80,7 +80,7 @@
 	},
 	{
 	  "name": "nagy boríték",
-	  "available": 500,
+	  "available": 300,
 	  "unit": "piece",
 	  "size": "A5",
 	  "lastuse": {
@@ -91,7 +91,7 @@
 	},
 	{
 	  "name": "doboz",
-	  "available": 500,
+	  "available": 100,
 	  "unit": "piece",
 	  "size": "A5",
 	  "lastuse": {
