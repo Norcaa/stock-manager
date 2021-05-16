@@ -12,6 +12,7 @@ import org.tinylog.Logger;
  * <p>
  * Az adott kellék levonás egyenlőre képletes, az osztály a levonandó értékeket
  * tárolja integer típusú változókban.
+ * Modell.
  */
 public class Felvetel {
 
@@ -48,7 +49,7 @@ public class Felvetel {
      * @param honap a rendelés leadásának a hónapja
      * @param nap a rendelés leadásának a napja
      */
-    public static void hozzaadas (String vevo, int termekszam, int ev, int honap, int nap) {
+    public static void hozzaadas(String vevo, int termekszam, int ev, int honap, int nap) {
         String who = vevo;
         Logger.info("Vevő hozzáadva");
 
@@ -138,7 +139,6 @@ public class Felvetel {
         stock.add(starwars);
         stock.add(spiral);
         stock.add(page);
-        stock.add(viragos);
         stock.add(kicsi);
         stock.add(nagy);
         stock.add(doboz);

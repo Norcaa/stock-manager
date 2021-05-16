@@ -110,6 +110,7 @@ public class FelvetelController {
         }
     }
 
+    @FXML
     private void felvetel() {
         int num = calculate();
         Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()),
