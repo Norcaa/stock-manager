@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 import raktar.Raktar;
 import raktar.RaktarRepository;
 
@@ -25,7 +26,7 @@ public class KezeloController {
 
     @FXML
     public void felvetel_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println("TERMÉK FELVÉTELE...");
+        Logger.trace("TERMÉK FELVÉTELE");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/felvetel.fxml"));
         Parent root = fxmlLoader.load();
@@ -37,7 +38,7 @@ public class KezeloController {
 
     @FXML
     public void keszlet_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println("RAKTÁR BETÖLTÉSE...");
+        Logger.trace("RAKTÁR BETÖLTÉSE");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/raktar.fxml"));
         Parent root = fxmlLoader.load();
@@ -52,7 +53,7 @@ public class KezeloController {
 
     @FXML
     public void kilepes_akcio(javafx.event.ActionEvent actionEvent) {
-        System.out.println("PROGRAM BEZÁRÁSA");
+        Logger.trace("PROGRAM BEZÁRÁSA");
         Stage stage = (Stage) kilepes.getScene().getWindow();
         stage.close();
     }

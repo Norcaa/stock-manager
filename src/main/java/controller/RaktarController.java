@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 import raktar.Raktar;
 import raktar.RaktarRepository;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class RaktarController {
 
     public void truth_akcio(ActionEvent actionEvent) {
-        System.out.println(";");
+        Logger.tag("SYSTEM").trace("Hello World!");
     }
 
     @FXML public Label viragos;
@@ -87,7 +88,7 @@ public class RaktarController {
 
     @FXML
     public void vissza_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println("Vissza a kezelőfelületre.");
+        Logger.trace("Vissza a kezelőfelületre");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/view.fxml"));
         Parent root = fxmlLoader.load();
         fxmlLoader.<KezeloController>getController();
