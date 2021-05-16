@@ -18,10 +18,6 @@ import java.util.List;
 
 public class RaktarController {
 
-    public void truth_akcio(ActionEvent actionEvent) {
-        Logger.tag("SYSTEM").trace("Hello World!");
-    }
-
     @FXML public Label viragos;
     @FXML public Label autos;
     @FXML public Label harrypotter;

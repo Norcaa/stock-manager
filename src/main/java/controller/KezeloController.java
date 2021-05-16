@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
+import raktar.RaktarRepository;
+
 import java.io.IOException;
 
 public class KezeloController {

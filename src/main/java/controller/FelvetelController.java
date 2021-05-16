@@ -14,12 +14,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
+import raktar.RaktarRepository;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FelvetelController {
 
@@ -111,7 +114,8 @@ public class FelvetelController {
     }
 
     @FXML
-    private void felvetel() {
+    private void felvetel() throws IOException {
+
         int num = calculate();
         Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()),
                 Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
@@ -125,6 +129,7 @@ public class FelvetelController {
                 }
             }
         }
+        RaktarRepository.update();
     }
 
     private boolean isValidDate() {

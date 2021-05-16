@@ -39,7 +39,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NÉV" textAlignment="CENTER" wrappingWidth="234.279296875">
+                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Név" textAlignment="LEFT" wrappingWidth="234.279296875">
                        <font>
                            <Font name="Laksaman" size="18.0" />
                        </font>
@@ -60,7 +60,7 @@
                   <Label id="matrica" fx:id="matrica" text="11" GridPane.rowIndex="11" />
                   <Label id="koszon" fx:id="koszon" text="12" GridPane.rowIndex="12" />
                   <Label id="nevjegy" fx:id="nevjegy" text="13" GridPane.rowIndex="13" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MENNYISÉG" textAlignment="CENTER" wrappingWidth="234.279296875" GridPane.columnIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mennyiség" textAlignment="LEFT" wrappingWidth="234.279296875" GridPane.columnIndex="1">
                       <font>
                           <Font name="Laksaman" size="18.0" />
                       </font>
