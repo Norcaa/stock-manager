@@ -1,12 +1,19 @@
 package felvetel;
 
 import org.junit.jupiter.api.Test;
+import raktar.RaktarRepository;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FelvetelTest {
 
     @Test
-    public void testItem1(){
+    public void testGetAll() {
+        assertEquals(13,Felvetel.getAll().size());
+    }
+
+    @Test
+    public void testItem1() {
         String termeknev = "autós";
         int num = 2;
         Felvetel.item(termeknev, num);
@@ -14,7 +21,7 @@ public class FelvetelTest {
     }
 
     @Test
-    public void testItem2(){
+    public void testItem2() {
         String termeknev = "Harry Potter";
         int num = 4;
         Felvetel.item(termeknev, num);
@@ -22,7 +29,7 @@ public class FelvetelTest {
     }
 
     @Test
-    public void testPack1(){
+    public void testPack1() {
         int num = 1;
         Felvetel.pack(num);
         assertEquals(1,Felvetel.getAll().get(6));
@@ -32,5 +39,13 @@ public class FelvetelTest {
         assertEquals(1,Felvetel.getAll().get(10));
         assertEquals(1,Felvetel.getAll().get(11));
         assertEquals(1,Felvetel.getAll().get(12));
+    }
+
+    @Test
+    public void testSetNull() {
+        Felvetel.setNull();
+        for (int i = 0; i < Felvetel.getAll().size(); i++){
+            assertEquals(0,Felvetel.getAll().get(i));
+        }
     }
 }
