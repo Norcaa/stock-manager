@@ -6,9 +6,11 @@
 
     <groupId>hu.unideb.inf</groupId>
     <artifactId>raktarkezelo</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 
-    <description></description>
+    <description>
+        Raktárkezelő program, amelyben rögzíthető egy rendelés és követhető a rendelkezésre álló készlet száma.
+    </description>
 
     <developers>
         <developer>
@@ -19,6 +21,10 @@
             <organizationUrl>http://www.inf.unideb.hu/</organizationUrl>
         </developer>
     </developers>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/Norcaa/stock-manager.git</developerConnection>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -279,11 +285,5 @@
             </plugin>
         </plugins>
     </reporting>
-
-    <scm>
-        <connection></connection>
-        <developerConnection></developerConnection>
-        <url></url>
-    </scm>
 
 </project>

@@ -1,6 +1,6 @@
 # Raktárkezelő
 
-#### Olyan program, amelyben rögzíthető egy rendelés éskövethető a rendelkezésre álló készlet száma.
+#### Olyan program, amelyben rögzíthető egy rendelés és követhető a rendelkezésre álló készlet száma.
 
 ## A megnyitást választhatunk kettő opció közül.
 
