@@ -52,6 +52,8 @@ public class RaktarController {
         new Felvetel();
         List<Integer> kellekek = Felvetel.getAll();
 
+        Logger.info("A levonandó értékek: " + kellekek);
+
         viragos.setText(raktar.get(0).getName());
         autos.setText(raktar.get(1).getName());
         harrypotter.setText(raktar.get(2).getName());
@@ -79,6 +81,7 @@ public class RaktarController {
         matricamenny.setText(String.valueOf(raktar.get(10).getAvailable() - kellekek.get(10)));
         koszonmenny.setText(String.valueOf(raktar.get(11).getAvailable() - kellekek.get(11)));
         nevjegymenny.setText(String.valueOf(raktar.get(12).getAvailable() - kellekek.get(12)));
+        Logger.info("Adatbázis betöltve");
     }
 
     @FXML

@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
+import raktar.Raktar;
 import raktar.RaktarRepository;
 
 import java.io.IOException;
@@ -50,23 +51,26 @@ public class FelvetelController {
 
     @FXML
     public void termek_hozzaadasa(javafx.event.ActionEvent actionEvent) throws IOException {
-        if (termekszam == 1) {
-            nev1.setVisible(true);
-            db1.setVisible(true);
-            termekszam++;
-        } else if (termekszam == 2) {
-            nev2.setVisible(true);
-            db2.setVisible(true);
-            termekszam++;
-        } else if (termekszam == 3) {
-            nev3.setVisible(true);
-            db3.setVisible(true);
-            termekszam++;
-        } else if (termekszam == 4) {
-            nev4.setVisible(true);
-            db4.setVisible(true);
+        boolean stock = isStock();
+        if (stock) {
+            if (termekszam == 1) {
+                nev1.setVisible(true);
+                db1.setVisible(true);
+                termekszam++;
+            } else if (termekszam == 2) {
+                nev2.setVisible(true);
+                db2.setVisible(true);
+                termekszam++;
+            } else if (termekszam == 3) {
+                nev3.setVisible(true);
+                db3.setVisible(true);
+                termekszam++;
+            } else if (termekszam == 4) {
+                nev4.setVisible(true);
+                db4.setVisible(true);
+            }
+            Logger.info("Termék ablak hozzáadva");
         }
-        Logger.info("Termék ablak hozzáadva");
     }
 
     @FXML
@@ -93,27 +97,24 @@ public class FelvetelController {
             boolean correct = isCorrectProduct();
             boolean validdate = isValidDate();
             boolean correctnum = isCorrectNum();
-            Logger.info(correctnum);
             if (!correct) {
-                label.setText("Hiba! \nAz alábbi termékek elérhetőek:\n     "
-                        + Termek.getAll().get(0) + "\n     " + Termek.getAll().get(1)+ "\n     "
-                        + Termek.getAll().get(2) + "\n     " + Termek.getAll().get(3));
+                label.setText("Hiba! \nAz alábbi termékek elérhetőek:\n"
+                        + Termek.getAll().get(0) + "\n" + Termek.getAll().get(1)+ "\n"
+                        + Termek.getAll().get(2) + "\n" + Termek.getAll().get(3));
                 errorback.setVisible(true);
                 errormespane.setDisable(false);
                 Logger.error("Hiba! Helytelen formátum!");
             } else if (!validdate) {
-                String ErrorMes = "Érvénytelen dátum!";
-                seterrortext(ErrorMes);
-                Logger.error(ErrorMes);
+                seterrortext("Érvénytelen dátum!");
             } else if (!correctnum) {
-                String ErrorMes = "Érvénytelen darabszám!";
-                seterrortext(ErrorMes);
-                Logger.error(ErrorMes);
+                seterrortext("Érvénytelen darabszám!");
             } else {
                 Logger.info("Sikeres megadás");
-                felvetel();
-                Logger.info("RENDELÉS FELVÉVE");
-                vissza_akcio(actionEvent);
+                boolean correctFelvetel = felvetel();
+                if (correctFelvetel) {
+                    Logger.info("RENDELÉS FELVÉVE");
+                    vissza_akcio(actionEvent);
+                }
             }
         }  catch (Exception e) {
             String ErrorMes = "Hiba! Érvénytelen értéket adott meg!";
@@ -123,8 +124,7 @@ public class FelvetelController {
     }
 
     @FXML
-    private void felvetel() throws IOException {
-
+    private boolean felvetel() throws IOException {
         int num = calculate();
         Felvetel.hozzaadas(vevo.getText(), num, Integer.parseInt(ev.getText()),
                 Integer.parseInt(honap.getText()), Integer.parseInt(nap.getText()));
@@ -138,10 +138,53 @@ public class FelvetelController {
                 }
             }
         }
-        RaktarRepository.update();
+        boolean possible = check();
+        if (!possible) {
+            seterrortext("Hiba!\nNincs elég kellék a megadott mennyiséghez!");
+            Felvetel.setNull();
+            return false;
+        } else {
+            RaktarRepository.update();
+            new RaktarRepository();
+            return true;
+        }
+    }
+
+    private static boolean check() {
+        Logger.info("Raktárkészlet ellenőrzése");
+
+        new RaktarRepository();
+        List<Raktar> raktar = RaktarRepository.getAll();
+        List<Integer> kellekek = Felvetel.getAll();
+
+        for (int i = 0; i < kellekek.size(); i++) {
+            if (raktar.get(i).getAvailable() < kellekek.get(i)) {
+                Logger.info("A felhasználni kívánt mennyiség: " + kellekek.get(i));
+                Logger.info("A raktárban levő mennyiség: " + raktar.get(i).getAvailable());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isStock() {
+        Logger.info("Raktárkészlet ellenőrzése");
+        new RaktarRepository();
+        for (int i = 0; i < RaktarRepository.getAll().size(); i++){
+            if (RaktarRepository.getAll().get(i).getAvailable() == 0) {
+                seterrortext("Hiba! Túl kevés elérhető kellék!");
+                return false;
+            } else if (RaktarRepository.getAll().get(i).getAvailable() == 1) {
+                label.setText("Az alábbi termékből már csak 1 db maradt:\n" + RaktarRepository.getAll().get(i).getName());
+                errorback.setVisible(true);
+                errormespane.setDisable(false);
+                Logger.warn("Figyelem! Alacsony kellékszám!");
+            }
+        } return true;
     }
 
     private boolean isValidDate() {
+        Logger.info("Dátum ellenőrzése");
         try {
             String stdatum = ev.getText() + "-" + honap.getText() + "-" + nap.getText();
             LocalDate datum = LocalDate.parse(stdatum, DateTimeFormatter
@@ -156,6 +199,7 @@ public class FelvetelController {
     }
 
     private boolean isCorrectNum() {
+        Logger.info("Darabszám ellenőrzése");
         if (calculate() > 100) {
             return false;
         } else return correctNumber(Integer.parseInt(db1.getText())) && correctNumber(Integer.parseInt(db3.getText()))
@@ -167,6 +211,7 @@ public class FelvetelController {
     }
 
     private int setNumber(TextField num) {
+        Logger.info("Darabszám beállítva");
         if (num.isVisible()){
             if (num.getText().isEmpty()) {
                 num.setText("1");
@@ -182,6 +227,7 @@ public class FelvetelController {
     }
 
     private Boolean isCorrectProduct() {
+        Logger.info("Termékek ellenőrzése");
         if (isCorrect(nev1.getText())) {
             if (nev2.isVisible()) {
                 if (isCorrect(nev2.getText())) {
@@ -210,6 +256,7 @@ public class FelvetelController {
         errorback.setVisible(true);
         errormespane.setDisable(false);
         label.setText(errormes);
+        Logger.error(errormes);
     }
 
     public void errortext(MouseEvent mouseEvent) {

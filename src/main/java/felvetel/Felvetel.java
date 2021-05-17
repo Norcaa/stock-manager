@@ -6,6 +6,8 @@ import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.List;
 import org.tinylog.Logger;
+import raktar.Raktar;
+import raktar.RaktarRepository;
 
 /**
  * Egy rendelés felvételének a lebonyolítása.
@@ -119,6 +121,31 @@ public class Felvetel {
         koszono++;
         Logger.info("Névjegykártya hozzáadva");
         nevjegy++;
+    }
+
+    /**
+     * Az értékek 0-ra állítása.
+     * <p>
+     * Azt a célt szolgálja, hogy ha többet kellene felhasználni, mint a
+     * raktárban lévő mennyiség, akkor nem kerül levonásra az érték, így
+     * vissza kell állítani 0-ra. Ha ez nem történne meg, a raktár nem a
+     * nem a valós értéket adná vissza.
+     */
+    public static void setNull(){
+        viragos = 0;
+        autos = 0;
+        harry = 0;
+        starwars = 0;
+        spiral = 0;
+        page = 0;
+        kicsi = 0;
+        nagy = 0;
+        doboz = 0;
+        csomagolo = 0;
+        matrica = 0;
+        koszono = 0;
+        nevjegy = 0;
+        Logger.info("Levonandó érték 0-ra állítva");
     }
 
     /**
