@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -8,7 +9,7 @@
     <children>
     <Pane id="raktarpane" prefHeight="500.0" prefWidth="750.0" stylesheets="@../pictures/view.css">
        <children>
-           <Text layoutX="304.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet">
+           <Text layoutX="254.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet" textAlignment="CENTER" wrappingWidth="242.279296875">
                <font>
                    <Font name="Laksaman" size="24.0" />
                </font>
@@ -19,8 +20,9 @@
                </font></Button>
             <GridPane alignment="CENTER" layoutX="140.0" layoutY="60.0" prefHeight="398.0" prefWidth="471.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="50.0" prefWidth="50.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="50.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -60,7 +62,7 @@
                   <Label id="matrica" fx:id="matrica" text="11" GridPane.rowIndex="11" />
                   <Label id="koszon" fx:id="koszon" text="12" GridPane.rowIndex="12" />
                   <Label id="nevjegy" fx:id="nevjegy" text="13" GridPane.rowIndex="13" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mennyiség" textAlignment="LEFT" wrappingWidth="234.279296875" GridPane.columnIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mennyiség" textAlignment="LEFT" wrappingWidth="118.279296875" GridPane.columnIndex="1">
                       <font>
                           <Font name="Laksaman" size="18.0" />
                       </font>
@@ -78,6 +80,24 @@
                   <Label id="matricamenny" fx:id="matricamenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                   <Label id="koszonmenny" fx:id="koszonmenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                   <Label id="nevjegymenny" fx:id="nevjegymenny" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Utolsó használat" textAlignment="LEFT" wrappingWidth="174.279296875" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Laksaman" size="18.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="date1" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="date2" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="date3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label fx:id="date4" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label fx:id="date5" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <Label fx:id="date6" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <Label fx:id="date7" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Label fx:id="date8" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <Label fx:id="date9" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <Label fx:id="date10" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <Label fx:id="date11" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label fx:id="date12" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+                  <Label fx:id="date13" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="13" />
                </children>
             </GridPane>
        </children>
