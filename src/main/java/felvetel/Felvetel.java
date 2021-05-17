@@ -5,9 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.tinylog.Logger;
-import raktar.Raktar;
-import raktar.RaktarRepository;
 
 /**
  * Egy rendelés felvételének a lebonyolítása.
@@ -31,6 +30,7 @@ public class Felvetel {
     private static int matrica;
     private static int koszono;
     private static int nevjegy;
+    static List<String> datum = new ArrayList<String>();
 
     public Felvetel() {
     }
@@ -56,8 +56,13 @@ public class Felvetel {
         Logger.info("Vevő hozzáadva");
 
         Logger.info("Dátum hozzáadva");
+
+        datum.add(String.valueOf(ev));
+        datum.add(String.valueOf(honap));
+        datum.add(String.valueOf(nap));
+
         String stdatum = ev + "-" + honap + "-" + nap;
-        LocalDate datum = LocalDate.parse(stdatum, DateTimeFormatter
+        LocalDate lokdatum = LocalDate.parse(stdatum, DateTimeFormatter
                 .ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
 
         Felvetel.pack(termekszam);
@@ -159,7 +164,7 @@ public class Felvetel {
      * @return lista, a benne szereplő értékek 0, vagy attól nagyobb egész
      *      számok, levonandó értékek.
      */
-    public static List<Integer> getAll(){
+    public static List<Integer> getAll() {
         List<Integer> stock = new ArrayList<Integer>(12);
 
         stock.add(viragos);
@@ -177,5 +182,9 @@ public class Felvetel {
         stock.add(nevjegy);
 
         return stock;
+    }
+
+    public static List<String> getDate() {
+        return datum;
     }
 }

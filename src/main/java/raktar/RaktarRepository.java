@@ -14,7 +14,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Osztály a kellékek információinak megszerzésére és frissítése.
@@ -57,8 +59,15 @@ public class RaktarRepository {
         List<Integer> nums = Felvetel.getAll();
         List<Raktar> newjson = getAll();
 
-        for (int i = 0; i < 13; i++){
-            newjson.get(i).setAvailable(newjson.get(i).getAvailable() - nums.get(i));
+        for (int i = 0; i < nums.size(); i++){
+            if (nums.get(i) != 0) {
+                newjson.get(i).setAvailable(newjson.get(i).getAvailable() - nums.get(i));
+                Map<String, String> date = new HashMap<String, String>();
+                date.put("year", Felvetel.getDate().get(0));
+                date.put("month", Felvetel.getDate().get(1));
+                date.put("day", Felvetel.getDate().get(2));
+                newjson.get(i).setLastuse(date);
+            }
         }
 
         MAPPER.writeValue(new File("src/main/resources/raktar/stock.json"), newjson);
