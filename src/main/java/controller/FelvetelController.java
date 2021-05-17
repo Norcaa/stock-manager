@@ -44,7 +44,7 @@ public class FelvetelController {
     @FXML public Rectangle errorback;
     @FXML public Pane errormespane;
 
-    private int termekszam = 1;
+    private int termekszam = 0;
 
     private final Termek termek = new Termek();
     private final Felvetel fevetel = new Felvetel();
@@ -53,22 +53,23 @@ public class FelvetelController {
     public void termek_hozzaadasa(javafx.event.ActionEvent actionEvent) throws IOException {
         boolean stock = isStock();
         if (stock) {
-            if (termekszam == 1) {
+            if (termekszam == 0) {
                 nev1.setVisible(true);
                 db1.setVisible(true);
                 termekszam++;
-            } else if (termekszam == 2) {
+            } else if (termekszam == 1) {
                 nev2.setVisible(true);
                 db2.setVisible(true);
                 termekszam++;
-            } else if (termekszam == 3) {
+            } else if (termekszam == 2) {
                 nev3.setVisible(true);
                 db3.setVisible(true);
                 termekszam++;
-            } else if (termekszam == 4) {
+            } else if (termekszam == 3) {
                 nev4.setVisible(true);
                 db4.setVisible(true);
-            }
+                termekszam++;
+            } else return;
             Logger.info("Termék ablak hozzáadva");
         }
     }
@@ -87,7 +88,7 @@ public class FelvetelController {
             nev2.setVisible(false);
             db2.setVisible(false);
             termekszam--;
-        }
+        } else return;
         Logger.info("Termék ablak törölve");
     }
 
