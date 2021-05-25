@@ -145,10 +145,6 @@ public class FelvetelController {
             Felvetel.setNull();
             return false;
         } else {
-            /*
-            RaktarRepository.update();
-            new RaktarRepository();
-            */
             return true;
         }
     }
