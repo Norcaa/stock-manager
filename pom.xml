@@ -6,7 +6,7 @@
 
     <groupId>hu.unideb.inf</groupId>
     <artifactId>raktarkezelo</artifactId>
-    <version>2.0</version>
+    <version>3.0</version>
 
     <description>
         Raktárkezelő program, amelyben rögzíthető egy rendelés és követhető a rendelkezésre álló készlet száma.
@@ -40,6 +40,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -111,11 +117,6 @@
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20200518</version>
         </dependency>
     </dependencies>
 

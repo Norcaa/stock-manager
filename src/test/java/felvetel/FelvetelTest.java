@@ -70,57 +70,10 @@ public class FelvetelTest {
      * segítségével lekérdezzük a megfelelő értéket.
      */
     @Test
-    public void testPack1() {
-        Felvetel.setNull();
-        Felvetel.pack(1);
-        assertEquals(1,Felvetel.getAll().get(6));
-        assertEquals(0,Felvetel.getAll().get(7));
-        assertEquals(0,Felvetel.getAll().get(8));
-        assertEquals(1,Felvetel.getAll().get(9));
-        assertEquals(1,Felvetel.getAll().get(10));
-        assertEquals(1,Felvetel.getAll().get(11));
-        assertEquals(1,Felvetel.getAll().get(12));
-    }
-
-    /**
-     * {@link Felvetel} osztály <code>pack()</code> metódusának tesztje
-     * <p>
-     * A teszt során egy példarendelés leadása történik.
-     * A rendelés során leadott termékek darabszámát adjuk át, a
-     * <code>pack()</code> metódusnak. A <code>getAll()</code> metódus
-     * segítségével lekérdezzük a megfelelő értéket.
-     */
-    @Test
-    public void testPack2() {
-        Felvetel.setNull();
-        Felvetel.pack(2);
-        assertEquals(0,Felvetel.getAll().get(6));
-        assertEquals(1,Felvetel.getAll().get(7));
-        assertEquals(0,Felvetel.getAll().get(8));
-        assertEquals(1,Felvetel.getAll().get(9));
-        assertEquals(1,Felvetel.getAll().get(10));
-        assertEquals(1,Felvetel.getAll().get(11));
-        assertEquals(1,Felvetel.getAll().get(12));
-    }
-
-    /**
-     * {@link Felvetel} osztály <code>pack()</code> metódusának tesztje
-     * <p>
-     * A teszt során egy példarendelés leadása történik.
-     * A rendelés során leadott termékek darabszámát adjuk át, a
-     * <code>pack()</code> metódusnak. A <code>getAll()</code> metódus
-     * segítségével lekérdezzük a megfelelő értéket.
-     */
-    @Test
-    public void testPack3() {
-        Felvetel.setNull();
-        Felvetel.pack(3);
-        assertEquals(0,Felvetel.getAll().get(6));
-        assertEquals(0,Felvetel.getAll().get(7));
-        assertEquals(1,Felvetel.getAll().get(8));
-        assertEquals(1,Felvetel.getAll().get(9));
-        assertEquals(1,Felvetel.getAll().get(10));
-        assertEquals(1,Felvetel.getAll().get(11));
-        assertEquals(1,Felvetel.getAll().get(12));
+    public void testGetPack() {
+        assertEquals(Packaging.KISBORITEK,Felvetel.getPack(1));
+        assertEquals(Packaging.NAGYBORITEK,Felvetel.getPack(2));
+        assertEquals(Packaging.DOBOZ,Felvetel.getPack(3));
+        assertEquals(Packaging.DOBOZ,Felvetel.getPack(5));
     }
 }

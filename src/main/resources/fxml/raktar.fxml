@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.input.*?>
 <?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
 
 <GridPane fx:id="grid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RaktarController">
     <children>
@@ -14,7 +16,15 @@
                    <Font name="Laksaman" size="24.0" />
                </font>
            </Text>
-           <Button fx:id="vissza" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#vissza_akcio" prefHeight="40.0" prefWidth="77.0" text="Vissza">
+           <Button fx:id="vissza" layoutX="14.0" layoutY="446.0" mnemonicParsing="false" onAction="#vissza_akcio" prefHeight="40.0" prefWidth="77.0" text="Vissza">
+               <font>
+                   <Font name="Sawasdee Bold" size="16.0" />
+               </font></Button>
+           <Button fx:id="megnyitás" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#megnyitas_akcio" prefHeight="40.0" prefWidth="97.0" text="Megnyitás">
+               <font>
+                   <Font name="Sawasdee Bold" size="16.0" />
+               </font></Button>
+           <Button fx:id="mentes" layoutX="14.0" layoutY="60.0" mnemonicParsing="false" onAction="#mentes_akcio" prefHeight="40.0" prefWidth="97.0" text="Mentés">
                <font>
                    <Font name="Sawasdee Bold" size="16.0" />
                </font></Button>

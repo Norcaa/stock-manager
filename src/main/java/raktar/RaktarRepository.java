@@ -3,20 +3,16 @@ package raktar;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import controller.FelvetelController;
 import felvetel.Felvetel;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.tinylog.Logger;
 
-import javax.sound.midi.SysexMessage;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Osztály a kellékek információinak megszerzésére és frissítése.
@@ -24,7 +20,6 @@ import java.util.Map;
 public class RaktarRepository {
 
     private final Raktar raktar = new Raktar();
-
     private static final ObjectMapper MAPPER = new ObjectMapper()
             .registerModule(new JavaTimeModule());
 
@@ -46,23 +41,38 @@ public class RaktarRepository {
     }
 
     /**
-     * Adatbázis frissítése.
+     * Adatbázis megnyitása.
      * <p>
-     * A beolvasásra kerülő fájlnévvel megyező nével kerül elmentésre, így a
-     * program következő indulásakor az új adatbázisból olvas be.
+     * A felhasználó által kiválasztott fájl kerül megnyitásra a
+     * fájlrendszerből.
+     *
+     * @throws IOException ha bármilyen I/O hiba történik
+     * @return a lista, amelyben a kellékek információit tároljuk.
+     */
+    public List<Raktar> open(String filePath) throws IOException {
+        FileReader reader = new FileReader(filePath);
+        stock = MAPPER.readValue(reader, new TypeReference<List<Raktar>>() {});
+
+        Logger.info("Kellék adatbázis betöltése");
+        return stock;
+    }
+
+    /** Adatbázis mentése.
+     * <p>
+     * A felhasználó által kiválasztott helyre kerül mentésre a fájl.
      * Az új fájl mentése előtt a megfelelő mezők új értékét kiszámoljuk.
-     * @throws JSONException ha bármilyen hiba történik az állománnyal
+     *
+     * @param filePath ahová a mentés történik
      * @throws IOException ha bármilyen I/O hiba történik
      */
-    public static void update() throws JSONException, IOException {
-        new RaktarRepository();
+    public void saveAs(String filePath) throws IOException {
         List<Integer> nums = Felvetel.getAll();
         List<Raktar> newjson = getAll();
+        Map<String, String> date = new HashMap<String, String>();
 
         for (int i = 0; i < nums.size(); i++){
             if (nums.get(i) != 0) {
                 newjson.get(i).setAvailable(newjson.get(i).getAvailable() - nums.get(i));
-                Map<String, String> date = new HashMap<String, String>();
                 date.put("year", Felvetel.getDate().get(0));
                 date.put("month", Felvetel.getDate().get(1));
                 date.put("day", Felvetel.getDate().get(2));
@@ -70,7 +80,7 @@ public class RaktarRepository {
             }
         }
 
-        MAPPER.writeValue(new File("src/main/resources/raktar/stock.json"), newjson);
+        MAPPER.writeValue(new File(filePath), newjson);
         Logger.info("Kellék adatbázis frissítve");
     }
 

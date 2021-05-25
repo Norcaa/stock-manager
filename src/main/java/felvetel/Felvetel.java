@@ -43,6 +43,11 @@ public class Felvetel {
      * az adminisztráció szempontjából elengedhetetlen értékek. A vevő neve
      * és a dátum a nyomkövetést szolgálja, amivel követhető, hogy a raktárból
      * mikor lett levonva az adott dolog és kinek a rendelése volt.
+     * A csomagolás kiválasztása után a megfelelő kellék levonandó értékének,
+     * illetve a csomagolásgoz szükséges többi kellék megadása. Csomagolópapír,
+     * amibe a termék becsomagolásra kerül. A matrica, amivel a csomagolópapír
+     * lesz ragasztva. A köszönő- és a névjegykártya a rendelés mellé kerül.
+     *
      * @param vevo a nyomkövetést szolgálja, ezzel követhető, hogy kinek a
      *             rendeléséhez lett felhasználva
      * @param termekszam a csomagolás optimizáláshoz szükséges, a termékek
@@ -52,26 +57,42 @@ public class Felvetel {
      * @param nap a rendelés leadásának a napja
      */
     public static void hozzaadas(String vevo, int termekszam, int ev, int honap, int nap) {
-        String who = vevo;
         Logger.info("Vevő hozzáadva");
-
-        Logger.info("Dátum hozzáadva");
 
         datum.add(String.valueOf(ev));
         datum.add(String.valueOf(honap));
         datum.add(String.valueOf(nap));
-
         String stdatum = ev + "-" + honap + "-" + nap;
         LocalDate lokdatum = LocalDate.parse(stdatum, DateTimeFormatter
                 .ofPattern("uuuu-M-d").withResolverStyle(ResolverStyle.STRICT));
+        Logger.info("Dátum hozzáadva");
 
-        Felvetel.pack(termekszam);
+        Packaging pack = getPack(termekszam);
+        if (pack == Packaging.KISBORITEK) {
+            kicsi++;
+            Logger.info("Kis boríték hozzáadva");
+        } else if (pack == Packaging.NAGYBORITEK) {
+            nagy++;
+            Logger.info("Nagy boríték hozzáadva");
+        } else {
+            doboz++;
+            Logger.info("Doboz hozzáadva");
+        }
+        csomagolo++;
+        Logger.info("Csomagolópapír hozzáadva");
+        matrica++;
+        Logger.info("Matrica hozzáadva");
+        koszono++;
+        Logger.info("Köszönőkártya hozzáadva");
+        nevjegy++;
+        Logger.info("Névjegykártya hozzáadva");
     }
 
     /**
      * A rendelt termék és a raktárból való levonáshoz szükséges dolog beazonosítása.
      * <p>
      * A szükséges kellékek értékének csökkentése a megfelelő mennyiséggel.
+     *
      * @param termeknev rendelt termék neve, beazonosítás, hogy melyik kellék
      *                  levonása történik
      * @param num egy termékből több darab rendelése esetén annak megfelelően
@@ -93,39 +114,25 @@ public class Felvetel {
     }
 
     /**
-     * Csomagolás meghatározása.
+     * Csomagolás kiválasztása.
      * <p>
      * Egy rendelt termék esetén elég a kisebb boríték választása.
      * Kettő termék esetén a doboz túl nagy, a kicsi boríték pedig túl kicsi,
      * így nagyobb borítékra van szükség. Három vagy annál több termék esetén
      * doboz választása.
-     * A kiválasztás után a megfelelő kellék levonandó értékének, illetve a
-     * csomagolásgoz szükséges többi kellék megadása. Csomagolópapír, amibe a
-     * termék becsomagolásra kerül. A matrica, amivel a csomagolópapír lesz ragasztva.
-     * A köszönő- és a névjegykártya a rendelés mellé kerül.
      *
      * Egy rendelés esetén csak egyszer fut le.
      * @param num a rendelt termékek száma, legalább 1
+     * @return amibe a termékek kerülnek
      */
-    public static void pack (int num) {
+    public static Packaging getPack (int num) {
         if (num == 1) {
-            kicsi++;
-            Logger.info("Kis boríték hozzáadva");
+            return Packaging.KISBORITEK;
         } else if (num == 2) {
-            nagy++;
-            Logger.info("Nagy boríték hozzáadva");
+            return Packaging.NAGYBORITEK;
         } else {
-            doboz++;
-            Logger.info("Doboz hozzáadva");
+            return Packaging.DOBOZ;
         }
-        Logger.info("Csomagolópapír hozzáadva");
-        csomagolo++;
-        Logger.info("Matrica hozzáadva");
-        matrica++;
-        Logger.info("Köszönőkártya hozzáadva");
-        koszono++;
-        Logger.info("Névjegykártya hozzáadva");
-        nevjegy++;
     }
 
     /**

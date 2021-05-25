@@ -8,16 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 import raktar.Raktar;
 import raktar.RaktarRepository;
 
+import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +62,15 @@ public class RaktarController {
     @FXML public Label date12;
     @FXML public Label date13;
 
+    private RaktarRepository raktar = new RaktarRepository();
+
+    @FXML
+    public void initialize() {
+        new RaktarRepository();
+        List<Raktar> raktar = RaktarRepository.getAll();
+        setStock(raktar);
+    }
+
     @FXML
     public void vissza_akcio(javafx.event.ActionEvent actionEvent) throws IOException {
         Logger.trace("Vissza a kezelőfelületre");
@@ -76,13 +83,48 @@ public class RaktarController {
     }
 
     @FXML
-    public void initialize() {
-        new RaktarRepository();
-        List<Raktar> raktar = RaktarRepository.getAll();
+    private void megnyitas_akcio(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Megnyitás");
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            Logger.debug("Fájl megnyitása: {}", file);
+            try {
+                List<Raktar> stock = raktar.open(file.getPath());
+                setStock(stock);
+            } catch (IOException e) {
+                Logger.error("Fájl megnyitása sikertelen");
+            }
+        }
+    }
+
+    @FXML
+    private void mentes_akcio(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Mentés másként");
+        File file = fileChooser.showSaveDialog(null);
+        if (file != null) {
+            Logger.debug("Fájl mentése {}", file);
+            try {
+                raktar.saveAs(file.getPath());
+            } catch (IOException e) {
+                Logger.error(e, "Fájl mentése sikertelen");
+            }
+        }
+    }
+
+    private void setStock(List<Raktar> raktar) {
         new Felvetel();
         List<Integer> kellekek = Felvetel.getAll();
 
-        Logger.info("A levonandó értékek: " + kellekek);
+        int cnt = 0;
+        for (int i = 0; i < kellekek.size(); i++)
+            if (kellekek.get(0) != 0) {
+                cnt = 1;
+            }
+        if (cnt != 0) {
+            Logger.info("A levonandó értékek: " + kellekek);
+        }
 
         viragos.setText(raktar.get(0).getName());
         autos.setText(raktar.get(1).getName());
@@ -149,10 +191,7 @@ public class RaktarController {
         date13.setText(raktar.get(12).getLastuse().get("year") + " - " + raktar.get(12).getLastuse().get("month")
                 + " - " + raktar.get(12).getLastuse().get("day"));
 
-
-
         Logger.info("Adatbázis betöltve");
     }
-
 
 }
